@@ -36,19 +36,19 @@ ruka-model/
 
 ## 🛠️ 핵심 구성 요소 설명
 
-### 1. [assets](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets) (시뮬레이션 모델 & 미디어)
+### 1. [assets](./assets) (시뮬레이션 모델 & 미디어)
 *   **MuJoCo 시뮬레이션 환경 (`xml/`):**
-    *   [hand_assembly.xml](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/xml/hand_assembly.xml): RUKA Hand의 관절(Joint), 액추에이터(Actuator) 및 링크 정보를 담은 주요 MuJoCo 모델 파일입니다.
-    *   [hand_basic_scene.xml](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/xml/hand_basic_scene.xml), [hand_box_scene.xml](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/xml/hand_box_scene.xml), [reorientation_cube.xml](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/xml/reorientation_cube.xml): 다양한 환경 시나리오와 물체 상호작용을 테스트하기 위한 씬 구성 파일입니다.
+    *   [hand_assembly.xml](./assets/xml/hand_assembly.xml): RUKA Hand의 관절(Joint), 액추에이터(Actuator) 및 링크 정보를 담은 주요 MuJoCo 모델 파일입니다.
+    *   [hand_basic_scene.xml](./assets/xml/hand_basic_scene.xml), [hand_box_scene.xml](./assets/xml/hand_box_scene.xml), [reorientation_cube.xml](./assets/xml/reorientation_cube.xml): 다양한 환경 시나리오와 물체 상호작용을 테스트하기 위한 씬 구성 파일입니다.
 *   **데모 시각 자료:**
-    *   로봇 손 캘리브레이션([calibration.gif](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/calibration.gif)), 사람 손 매핑 평가([human_eval.gif](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/human_eval.gif)), 실제 구동 영상([ruka.gif](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/ruka.gif)) 등이 포함되어 시뮬레이션 결과 및 작업 흐름을 파악하기 좋습니다.
+    *   로봇 손 캘리브레이션([calibration.gif](./assets/calibration.gif)), 사람 손 매핑 평가([human_eval.gif](./assets/human_eval.gif)), 실제 구동 영상([ruka.gif](./assets/ruka.gif)) 등이 포함되어 시뮬레이션 결과 및 작업 흐름을 파악하기 좋습니다.
 
-### 2. [sample_code](file:///c:/Users/jeonj/Desktop/organ/ruka-model/sample_code) (동작 예시 및 유틸리티)
-*   **[test_controllers.py](file:///c:/Users/jeonj/Desktop/organ/ruka-model/sample_code/examples/test_controllers.py):**
+### 2. [sample_code](./sample_code) (동작 예시 및 유틸리티)
+*   **[test_controllers.py](./sample_code/examples/test_controllers.py):**
     *   `ruka_hand` 라이브러리의 `RUKAOperator` 클래스를 활용하여 사전 저장된 인간/로봇의 keypoint 좌표(`.npy`)를 기반으로 로봇 컨트롤러 루프를 주기적으로 실행하는 예제 코드입니다.
-*   **[calculate_dset_stats.py](file:///c:/Users/jeonj/Desktop/organ/ruka-model/sample_code/scripts/calculate_dset_stats.py):**
+*   **[calculate_dset_stats.py](./sample_code/scripts/calculate_dset_stats.py):**
     *   모델 학습 이전에 데이터셋의 통계값(Mean, Variance 등)을 계산해 `dataset_stats.pkl`로 저장합니다. `Hydra` 및 `OmegaConf` 설정을 동적으로 불러와 데이터 가공을 간소화합니다.
-*   **[reset_motors.py](file:///c:/Users/jeonj/Desktop/organ/ruka-model/sample_code/scripts/reset_motors.py):**
+*   **[reset_motors.py](./sample_code/scripts/reset_motors.py):**
     *   로봇 핸드 제어 모터들을 물리적으로 텐션이 완료된 기본 홈 위치(`hand.tensioned_pos`)로 부드럽게 복구(리셋)시켜주는 안전 헬퍼 스크립트입니다.
 
 ---
@@ -80,7 +80,7 @@ python sample_code/scripts/reset_motors.py --hand_type right
 ### 📌 3. 데이터셋 통계 계산 (학습 준비)
 기존 학습 진행 정보가 담긴 특정 디렉토리 경로에 대하여 전체 데이터셋의 통계 처리를 하고자 할 경우:
 
-1. [calculate_dset_stats.py](file:///c:/Users/jeonj/Desktop/organ/ruka-model/sample_code/scripts/calculate_dset_stats.py) 코드 내 `training_paths` 변수에 해당 모델 체크포인트 혹은 실험 폴더 경로를 지정합니다.
+1. [calculate_dset_stats.py](./sample_code/scripts/calculate_dset_stats.py) 코드 내 `training_paths` 변수에 해당 모델 체크포인트 혹은 실험 폴더 경로를 지정합니다.
 2. 스크립트를 실행합니다.
    ```bash
    python sample_code/scripts/calculate_dset_stats.py
@@ -100,9 +100,9 @@ python sample_code/examples/test_controllers.py
 ## 🎨 시각 자료 및 시스템 시연 (Visual Demonstration)
 
 ### 시스템 아키텍처
-![Architecture](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/architecture.png)
+![Architecture](./assets/architecture.png)
 
 ### RUKA Hand 동작 데모
 | 캘리브레이션 | 모션 평가 | 로봇 조작 |
 | :---: | :---: | :---: |
-| ![Calibration](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/calibration.gif) | ![Human Eval](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/human_eval.gif) | ![Robot Eval](file:///c:/Users/jeonj/Desktop/organ/ruka-model/assets/robot_eval.gif) |
+| ![Calibration](./assets/calibration.gif) | ![Human Eval](./assets/human_eval.gif) | ![Robot Eval](./assets/robot_eval.gif) |
