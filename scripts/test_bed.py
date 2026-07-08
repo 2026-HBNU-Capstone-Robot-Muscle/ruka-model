@@ -33,7 +33,7 @@ def set_hand_close(model, data, fraction):
 def main():
     # 이 스크립트 파일의 위치를 기준으로 한 xml 상대 경로 설정 (상자가 포함된 scene 로드)
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    xml_path = os.path.join(script_dir, "assets", "xml", "hand_box_scene.xml")
+    xml_path = os.path.join(script_dir, "..", "assets", "xml", "hand_box_scene.xml")
     
     print(f"Loading MuJoCo model from: {xml_path}")
     
